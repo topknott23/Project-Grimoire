@@ -3,6 +3,7 @@ package com.companion.dashboard.utils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -22,6 +23,7 @@ public class SceneLoader {
             Parent root = FXMLLoader.load(SceneLoader.class.getResource(fxmlPath));
             if (currentScene == null) {
                 currentScene = new Scene(root, 1080, 720);
+                currentScene.setFill(Color.TRANSPARENT);
                 primaryStage.setScene(currentScene);
             } else {
 

@@ -1,5 +1,6 @@
 package com.companion.dashboard.controllers;
 
+import com.companion.dashboard.services.GeminiService;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,34 +21,41 @@ public class GuideController {
         String query = txtInput.getText().trim();
         if (query.isEmpty()) return;
 
-        // Clear input and show a temporary loading status
+
         txtInput.clear();
         txtOutput.setText("Consulting the grimoire pages for: \"" + query + "\"...\n\n(Waiting for cloud alignment...)");
         btnSend.setDisable(true);
 
-        // Define the background task to fetch AI answers without freezing the app
+        // running this in the background so the ui doesn't freeze and crash
         Task<String> searchTask = new Task<>() {
             @Override
             protected String call() throws Exception {
-                // TODO: Replace this placeholder with the actual GeminiService call next!
-                Thread.sleep(2000); // Simulate network latency
-                return "Grimoire Simulation Response:\n\nTo optimize your query regarding '" + query + "', you should focus on maximizing resource throughput using automated containment grids.";
+                // waking up the ai
+                GeminiService aiService = new GeminiService();
+
+                // feeding it some context so it doesn't give me a recipe for pancakes
+                String systemPrompt = "You are a helpful gaming assistant inside a desktop app called Project Grimoire. Keep answers concise. Answer this: " + query;
+
+                // ship it
+                return aiService.generateResponse(systemPrompt);
             }
         };
 
-        // When the background thread successfully finishes
+        // ayy it worked
         searchTask.setOnSucceeded(e -> {
             txtOutput.setText(searchTask.getValue());
             btnSend.setDisable(false);
         });
 
-        // When the background thread encounters an error
+        // rip. something went wrong
         searchTask.setOnFailed(e -> {
+
+            searchTask.getException().printStackTrace();
+
             txtOutput.setText("Error: The cosmic links failed to gather your knowledge. Check your connection.");
             btnSend.setDisable(false);
         });
 
-        // Fire off the background thread
         new Thread(searchTask).start();
     }
 }

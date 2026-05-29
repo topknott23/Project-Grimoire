@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" alignment="TOP_LEFT" style="-fx-padding: 30;" styleClass="content-background" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://fxml.com/fxml/1" fx:controller="com.companion.dashboard.controllers.LoreController">
+
+    <VBox spacing="5.0">
+        <Label text="📜 Lore &amp; World Generator" style="-fx-text-fill: #ffffff; -fx-font-size: 24px; -fx-font-weight: bold;"/>
+        <Label text="Forge entire environments using structured JSON data injection." style="-fx-text-fill: #a0a0aa; -fx-font-size: 14px;"/>
+    </VBox>
+
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <TextField fx:id="txtTheme" promptText="Enter a theme (e.g., Submerged Neon City)" HBox.hgrow="ALWAYS"
+                   style="-fx-background-color: #1e1e24; -fx-text-fill: white; -fx-padding: 12; -fx-border-color: #27272a; -fx-border-radius: 5; -fx-font-size: 14px;"/>
+
+        <Button fx:id="btnGenerate" text="Forge World" onAction="#handleGenerate" minWidth="120.0"
+                style="-fx-background-color: #f59e0b; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 12 20; -fx-background-radius: 5; -fx-cursor: hand;"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+        <VBox spacing="15.0" style="-fx-background-color: #1e1e24; -fx-padding: 20; -fx-background-radius: 8; -fx-border-color: #27272a; -fx-border-radius: 8;">
+
+            <Label fx:id="lblCityName" text="Location Name: Waiting for input..." style="-fx-text-fill: #fbbf24; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <VBox spacing="5.0">
+                <Label text="Backstory:" style="-fx-text-fill: #a0a0aa; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                <Label fx:id="lblBackstory" wrapText="true" text="The generated narrative will be injected here." style="-fx-text-fill: #e4e4e7; -fx-font-size: 14px; -fx-line-spacing: 1.5;"/>
+            </VBox>
+
+            <VBox spacing="5.0">
+                <Label text="Notable NPCs:" style="-fx-text-fill: #a0a0aa; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                <VBox fx:id="npcContainer" spacing="10.0"/>
+            </VBox>
+
+        </VBox>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,10 @@
+com\companion\dashboard\utils\SceneLoader.class
+com\companion\dashboard\controllers\GuideController$1.class
+com\companion\dashboard\controllers\MainController.class
+com\companion\dashboard\models\GameResponse.class
+module-info.class
+com\companion\dashboard\utils\CustomPopup.class
+com\companion\dashboard\services\GeminiService.class
+com\companion\dashboard\controllers\OptimizerController.class
+com\companion\dashboard\controllers\GuideController.class
+com\companion\dashboard\Main.class

@@ -2,6 +2,7 @@ package com.companion.dashboard;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import com.companion.dashboard.utils.SceneLoader;
 
 public class Main extends Application {
@@ -10,6 +11,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
 
         primaryStage.setTitle("Project Grimoire");
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
 
         SceneLoader.setPrimaryStage(primaryStage);
 
