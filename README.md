@@ -4,7 +4,7 @@ I've nothing to do and decided to throw this together to see if I could make a d
 
 ## What's in it
 If you actually want to run it, there are a few random tools I built into the dashboard:
-* **Game Guide:** A simple chat interface I use to look up game strats without having to alt-tab to a browser. It runs on a background thread so the app doesn't lock up.
+* **Game Guide:**A simple chat interface I use to look up game strats without having to alt-tab to a browser. It runs on a background thread so the app doesn't lock up.(using AI)
 * **RAM Optimizer:** I was getting annoyed with Minecraft modpack lag, so I made this to calculate the exact JVM garbage collection arguments needed for different PC specs.
 * **World Builder:** This was mostly just an experiment to see if I could force the AI to return strict JSON data instead of normal text, and then have the Java code parse it to build UI cards dynamically.
 
